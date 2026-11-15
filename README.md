@@ -29,6 +29,9 @@ Paste it into the key window and press Verify. One-time step, the key never chan
   history, so it never looks like it is guessing.
 - Movement steers to one waypoint at a time and only re-issues move orders when the destination
   actually changes, so the character walks a straight line instead of jittering.
+- Jumps at pathfinding jump waypoints again; if a ledge cannot be cleared after 2.5 seconds of
+  hopping it gives up on that waypoint instead of getting stuck.
+- The camera swings smoothly to face the path while walking, then hands control back for combat.
 - Abilities aim at that target and are only cast when it is in reach, so skills do not clip a crowd.
 - Optional auto block that reacts to NPC telegraphs (see the fighting notes below).
 - Attack range, sidestep-when-stuck, hide name, hop to the quietest server.
