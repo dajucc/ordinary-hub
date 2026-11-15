@@ -30,8 +30,14 @@ Paste it into the key window and press Verify. One-time step, the key never chan
 - Pathfinding re-plans only for a real reason (the target moved, the path went stale, or the bot
   stopped making ground) instead of on a fixed timer, and follows waypoints with a look-ahead so
   corners are cut smoothly instead of walked back to.
+- Hybrid routing: when a raycast to the target is clear and there is floor ahead, it walks straight
+  at it; `PathfindingService` is only built when something solid blocks the view or the target is on
+  another level, which cuts the number of re-plans and the stutter that came with them.
 - When it stops making ground it escalates: jump, sidestep and re-plan, then a jump-free route,
   then it leaves that NPC alone for a while instead of grinding against the same wall.
+- The brain behind Utility -> Status reports the route it picked (direct or path), the waypoint index,
+  the distance to the target, how many times it has re-planned and the reason for the last one
+  ("blocked by <part>", "target moved", "stuck, re-routing"), so you can see where it is going and why.
 - Jumps at pathfinding jump waypoints again; if a ledge cannot be cleared after 2.5 seconds of
   hopping it gives up on that waypoint instead of getting stuck.
 - The camera swings smoothly to face the path while walking, then hands control back for combat.
